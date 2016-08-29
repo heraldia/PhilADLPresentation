@@ -87,3 +87,4 @@ c:\users\yunfei\documents\visual studio 2015\Projects\WebApplication1\WebApplica
 c:\users\yunfei\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
 c:\users\yunfei\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 c:\users\yunfei\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Yunfei\Documents\Visual Studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
