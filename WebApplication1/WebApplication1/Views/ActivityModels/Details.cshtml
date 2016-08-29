@@ -1,4 +1,5 @@
 ﻿@model WebApplication1.Models.ActivityModels
+            @using  System.Text
 
 @{
     ViewBag.Title = "Details";
@@ -8,63 +9,63 @@
 @functions {
     public static IHtmlString Check(string actionStr, string wifiStr)
     {
-        string result = "";
-            if (actionStr.IndexOf("Stand")>-1){
-            result = "<img src = \"../../ADLImage/stand.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Sit")>-1){
-            result += "<img src = \"../../ADLImage/sit.png\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Lying") > -1)
-            {
-            result += "<img src = \"../../ADLImage/lying.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("night") > 0){
-            result += "<img src = \"../../ADLImage/night.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Moving") > -1){
-            result += "<img src = \"../../ADLImage/moving.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("day") > 0 ) {
-            result += "<img src = \"../../ADLImage/day.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("cook") > 0) {
-            result += "<img src = \"../../ADLImage/cook.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Same") > 0) {
-            result += "<img src = \"../../ADLImage/p1.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Still") > -1) {
-            result += "<img src = \"../../ADLImage/still.png\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("another") > -1) {
-            result += "<img src = \"../../ADLImage/p2.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Watch") > 0) {
-            result += "<img src = \"../../ADLImage/watch.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Sleep") > 0 && actionStr.IndexOf("Watch") < 0 ) {
-            result += "<img src = \"../../ADLImage/sleep.png\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("step") > 0) {
-            result += "<img src = \"../../ADLImage/walk.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("shop") > 0) {
-            result += "<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("drive") > 0) {
-            result += "<img src = \"../../ADLImage/drive.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Meal") > 0 ) {
-            result += "<img src = \"../../ADLImage/meal.jpg\" height = '50' width = '50' />";
-            }
-            if (actionStr.IndexOf("Work") > 0) {
-            result += "<img src = \"../../ADLImage/work.jpg\" height = '50' width = '50' />";
-            }
-            if (wifiStr.ToLower().IndexOf("walmart") > -1 || wifiStr.ToLower().IndexOf("eagle") > -1) {
-            result += "<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />";
-            }
-        return new HtmlString(result);
+        StringBuilder result = new StringBuilder();
+        if (actionStr.IndexOf("Stand")>-1){
+            result.Append("<img src = \"../../ADLImage/stand.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Sit")>-1){
+            result.Append("<img src = \"../../ADLImage/sit.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Lying") > -1)
+        {
+            result.Append("<img src = \"../../ADLImage/lying.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("night") > 0){
+            result.Append("<img src = \"../../ADLImage/night.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Moving") > -1){
+            result.Append("<img src = \"../../ADLImage/moving.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("day") > 0 ) {
+            result.Append("<img src = \"../../ADLImage/day.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("cook") > 0) {
+            result.Append("<img src = \"../../ADLImage/cook.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Same") > 0) {
+            result.Append("<img src = \"../../ADLImage/p1.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Still") > -1) {
+            result.Append("<img src = \"../../ADLImage/still.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("another") > -1) {
+            result.Append("<img src = \"../../ADLImage/p2.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Watch") > 0) {
+            result.Append("<img src = \"../../ADLImage/watch.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Sleep") > 0 && actionStr.IndexOf("Watch") < 0 ) {
+            result.Append("<img src = \"../../ADLImage/sleep.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("step") > 0) {
+            result.Append("<img src = \"../../ADLImage/walk.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("shop") > 0) {
+            result.Append("<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("drive") > 0) {
+            result.Append("<img src = \"../../ADLImage/drive.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Meal") > 0 ) {
+            result.Append("<img src = \"../../ADLImage/meal.jpg\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Work") > 0) {
+            result.Append("<img src = \"../../ADLImage/work.jpg\" height = '50' width = '50' />");
+        }
+        if (wifiStr.ToLower().IndexOf("walmart") > -1 || wifiStr.ToLower().IndexOf("eagle") > -1) {
+            result.Append("<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />");
+        }
+        return new HtmlString(result.ToString());
     }
 }
 
