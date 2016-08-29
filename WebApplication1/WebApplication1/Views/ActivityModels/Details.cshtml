@@ -1,0 +1,107 @@
+﻿@model WebApplication1.Models.ActivityModels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@functions {
+    public static IHtmlString Check()
+    {
+        string result = "";
+        var count = 0;
+        if (count == 0)
+        {
+            result = "<img src = \"@Url.Content(\"../../ ADLImage / stand.jpg\")\" height = '50' width = '50' />";
+            //< img src = "@Url.Content("../../ ADLImage / stand.jpg")" height = '50' width = '50' />
+        }
+        else
+        {
+            result = count.ToString();
+        }
+        return new HtmlString(result);
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ActivityModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Action)
+            
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Action)
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionPic)
+        </dt>
+
+        <dd>
+            @Check()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WiFi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WiFi)
+        </dd>
+        <dt>Location</dt>
+        <dd>
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=model.Longitude,model.Latitude&zoom=14&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyC4meMcaNYrctbEZ-pWEkTl_NMTK0E_FpI">
+        </dd>
+</dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
