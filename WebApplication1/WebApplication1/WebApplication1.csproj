@@ -358,6 +358,7 @@
     <Content Include="Views\ActivityModels\Details.cshtml" />
     <Content Include="Views\ActivityModels\Edit.cshtml" />
     <Content Include="Views\ActivityModels\Index.cshtml" />
+    <Content Include="App_Code\UIHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADLImage\" />
