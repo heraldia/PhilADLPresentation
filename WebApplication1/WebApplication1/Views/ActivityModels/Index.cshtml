@@ -2,9 +2,13 @@
 
 @{ ViewBag.Title = "Index"; Layout = "~/Views/Shared/_Layout.cshtml"; } 
 
+<link rel="stylesheet" type="text/css" href="~/Content/here.css" /> 
+<script type="text/javascript" src="~/Scripts/app/clock.js"></script>
 
 <h2>Index </h2> 
 <iframe src="http://free.timeanddate.com/clock/i5cmi83y/n76/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql25/mqw2/mqd96/mhc000/mhs3/mhl20/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe>
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -43,12 +47,25 @@
         </td>
         <td>
             @Helper11.timeConvert(item.Time)
-            <canvas id="canvas" width="50" height="50"
-                    style="background-color:#eee"></canvas>
+            <svg id='@item.id' viewBox='0 0 100 100' width='50' height='50' fill='#cc55fa' stroke='#000' 
+                 stroke-linecap="round"  onload='timerTickwid(@item.id, @item.Time)'>
+                <circle id='surface' cx='50' cy='50' r='45' />
+                <g id='pointers'>
+                    <line class="h_p" id='h_pointer_@item.id' x1='50' y1='50' x2='50' y2='27' />
+                    <line class="m_p" id='m_pointer_@item.id' x1='50' y1='50' x2='50' y2='17' />
+                    <line id='s_pointer_@item.id' x1='50' y1='50' x2='50' y2='13' />
+                </g>
+                <g id='numbers'>
+                    <text x='43' y='18'>12</text>
+                    <text x='85' y='54'>3</text>
+                    <text x='47' y='91'>6</text>
+                    <text x='9' y='54'>9</text>
+                </g>
+            </svg>
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.WiFi)
-
         </td>
         <td>
             <!-- 
@@ -65,83 +82,3 @@
 
 
 
-<script>
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var radius = canvas.height / 2;
-ctx.translate(radius, radius);
-radius = radius * 0.90
-setInterval(drawClock, 1000);
-
-function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
-}
-
-function drawFace(ctx, radius) {
-  var grad;
-  ctx.beginPath();
-  ctx.arc(0, 0, radius, 0, 2*Math.PI);
-  ctx.fillStyle = 'white';
-  ctx.fill();
-  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-  grad.addColorStop(0, '#333');
-  grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
-  ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
-  ctx.fillStyle = '#333';
-  ctx.fill();
-}
-
-function drawNumbers(ctx, radius) {
-  var ang;
-  var num;
-  ctx.font = radius*0.15 + "px arial";
-  ctx.textBaseline="middle";
-  ctx.textAlign="center";
-  for(num = 1; num < 13; num++){
-    ang = num * Math.PI / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius*0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius*0.85);
-    ctx.rotate(-ang);
-  }
-}
-
-function drawTime(ctx, radius){
-    var hour = 8;
-    var minute = 11;
-    var second = 12;
-    //hour
-    hour=hour%12;
-    hour=(hour*Math.PI/6)+
-    (minute*Math.PI/(6*60))+
-    (second*Math.PI/(360*60));
-    drawHand(ctx, hour, radius*0.5, radius*0.07);
-    //minute
-    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.8, radius*0.07);
-    // second
-    second=(second*Math.PI/30);
-    drawHand(ctx, second, radius*0.9, radius*0.02);
-}
-
-function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.lineCap = "round";
-    ctx.moveTo(0,0);
-    ctx.rotate(pos);
-    ctx.lineTo(0, -length);
-    ctx.stroke();
-    ctx.rotate(-pos);
-}
-</script>
