@@ -52,13 +52,25 @@
         {
             result.Append("<img src = \"../../ADLImage/sleep.png\" height = '50' width = '50' />");
         }
+        if (actionStr.IndexOf("shop") > 0)
+        {
+            result.Append("<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Dimm") > 0)
+        {
+            result.Append("<img src = \"../../ADLImage/dark.jpg\" height = '50' width = '50' />");
+        }
         if (actionStr.IndexOf("step") > 0)
         {
-            result.Append("<img src = \"../../ADLImage/walk.jpg\" height = '50' width = '50' />");
+            result.Append("<img src = \"../../ADLImage/p2.jpg\" height = '50' width = '50' />");
         }
         if (actionStr.IndexOf("shop") > 0)
         {
             result.Append("<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />");
+        }
+        if (actionStr.IndexOf("Wash") > -1)
+        {
+            result.Append("<img src = \"../../ADLImage/wash.jpg\" height = '50' width = '50' />");
         }
         if (actionStr.IndexOf("drive") > 0)
         {
@@ -76,6 +88,13 @@
         {
             result.Append("<img src = \"../../ADLImage/shop.png\" height = '50' width = '50' />");
         }
+        return new HtmlString(result.ToString());
+    }
+
+    public static IHtmlString Clock(string timeStr)
+    {
+        string hour = timeStr.Substring(0, 2);
+        string result = "<img src = \"../../ADLImage/clock/"+hour+".png\" height = '50' width = '50' />";
         return new HtmlString(result.ToString());
     }
 }
