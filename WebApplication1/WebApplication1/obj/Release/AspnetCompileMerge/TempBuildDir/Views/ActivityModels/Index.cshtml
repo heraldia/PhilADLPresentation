@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebApplication1.Models.ActivityModels> 
+
+@{ ViewBag.Title = "Index"; Layout = "~/Views/Shared/_Layout.cshtml"; } 
+
+<link rel="stylesheet" type="text/css" href="~/Content/here.css" /> 
+<script type="text/javascript" src="~/Scripts/app/clock.js"></script>
+
+<h2>Index </h2> 
+<iframe src="http://free.timeanddate.com/clock/i5cmi83y/n76/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql25/mqw2/mqd96/mhc000/mhs3/mhl20/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Action)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionPic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WiFi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+         <td>
+            @Html.DisplayFor(modelItem => item.Action)
+        </td>
+        <td>
+            @UIHelper.Check(@item.Action, @item.WiFi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Helper11.timeConvert(item.Time)
+            <svg id='@item.id' viewBox='0 0 100 100' width='50' height='50' fill='#cc55fa' stroke='#000' 
+                 stroke-linecap="round"  onload='timerTickwid(@item.id, @item.Time)'>
+                <circle id='surface' cx='50' cy='50' r='45' />
+                <g id='pointers'>
+                    <line class="h_p" id='h_pointer_@item.id' x1='50' y1='50' x2='50' y2='27' />
+                    <line class="m_p" id='m_pointer_@item.id' x1='50' y1='50' x2='50' y2='17' />
+                    <line id='s_pointer_@item.id' x1='50' y1='50' x2='50' y2='13' />
+                </g>
+                <g id='numbers'>
+                    <text x='43' y='18'>12</text>
+                    <text x='85' y='54'>3</text>
+                    <text x='47' y='91'>6</text>
+                    <text x='9' y='54'>9</text>
+                </g>
+            </svg>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WiFi)
+        </td>
+        <td>
+            <!-- 
+             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+             --> 
+            @Html.ActionLink("Details", "Details", new { id=item.id }) 
+        </td>
+    </tr>
+}
+    
+
+</table>
+
+
+
+

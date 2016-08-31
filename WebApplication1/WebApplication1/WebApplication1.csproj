@@ -250,11 +250,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ActivityModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Migrations\201608310724372_Initial.cs" />
+    <Compile Include="Migrations\201608310724372_Initial.Designer.cs">
+      <DependentUpon>201608310724372_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -356,16 +356,12 @@
     <Content Include="Views\InOne\Index.cshtml" />
     <Content Include="Views\InOne\AllInOne.cshtml" />
     <Content Include="Views\InOne\getActionListAjax.cshtml" />
-    <Content Include="Views\ActivityModels\Create.cshtml" />
-    <Content Include="Views\ActivityModels\Delete.cshtml" />
-    <Content Include="Views\ActivityModels\Details.cshtml" />
-    <Content Include="Views\ActivityModels\Edit.cshtml" />
-    <Content Include="Views\ActivityModels\Index.cshtml" />
     <Content Include="App_Code\UIHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADLImage\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -374,6 +370,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608310724372_Initial.resx">
+      <DependentUpon>201608310724372_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

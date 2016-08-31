@@ -4,6 +4,7 @@
     public static IHtmlString Check(string actionStr, string wifiStr)
     {
         StringBuilder result = new StringBuilder();
+        if (actionStr == null || wifiStr == null) { return new HtmlString(result.ToString()); } 
         if (actionStr.IndexOf("Stand") > -1)
         {
             result.Append("<img src = \"../../ADLImage/stand.jpg\" height = '50' width = '50' />");

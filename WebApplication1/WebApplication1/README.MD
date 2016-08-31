@@ -169,3 +169,15 @@ http://code.activestate.com/recipes/578686-analog-clock/
 c# 代替ashx
 C#画一个时钟
 http://m.blog.csdn.net/article/details?id=19052553
+
+deploy
+http://www.fengfly.com/plus/view-213228-1.html
+https://www.kafan.cn/zt/07v5ozd53g.html
+
+Publish web:
+AdlPresent
+user name: phil passwor: hanyi
+
+Enable-Migrations -ContextTypeName WebApplication1.Models.ActivityDBContext
+add-migration Initial
+update-database
