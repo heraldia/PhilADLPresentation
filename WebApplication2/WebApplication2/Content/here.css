@@ -1,0 +1,29 @@
+﻿    #clock {
+        fill: #cc55fa;
+        stroke: #000;
+        stroke-linecap: round;
+    }
+
+    #surface, #h_pointer {
+        stroke-width: 5px;
+    }
+
+    #delimiters, #s_pointer {
+        stroke-width: 1px;
+    }
+
+    #m_pointer {
+        stroke-width: 3px;
+    }
+
+    #numbers {
+        font-family: sans-serif;
+        font-size: 80%;
+    }
+
+    .h_p {
+        stroke-width: 5px;
+    }
+    .m_p {
+        stroke-width: 3px;
+    }
